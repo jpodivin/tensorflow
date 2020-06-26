@@ -150,8 +150,11 @@ class Metric(base_layer.Layer):
   ```
   """
 
-  def __init__(self, name=None, dtype=None, **kwargs):
-    super(Metric, self).__init__(name=name, dtype=dtype, **kwargs)
+  def __init__(self, name=None, dtype=None, dynamic=False, **kwargs):
+    super(Metric, self).__init__(name=name,
+                                 dtype=dtype,
+                                 dynamic=dynamic,
+                                 **kwargs)
     self.stateful = True  # All metric layers are stateful.
     self.built = True
     if not base_layer_utils.v2_dtype_behavior_enabled():
